@@ -1,4 +1,9 @@
 # Databricks notebook source
+# MAGIC %md 
+# MAGIC You may find this series of notebooks at https://github.com/databricks-industry-solutions/customer-lifetime-value. For more information about this solution accelerator, visit https://www.databricks.com/solutions/accelerators/customer-lifetime-value.
+
+# COMMAND ----------
+
 # MAGIC %md ##Estimating Future Spend
 # MAGIC 
 # MAGIC In the previous notebook, we examined how customers in a non-subscription model disengage over time.  Without formal contracts in place between retailers and customers, we are left to estimate the probability a customer has dropped out of an on-going relationship based on their historical patterns of engagement relative to those of other customers. Understanding the probability a customer remains actively engaged is highly valuable in its own right.  But we can take it one step further and calculate how much revenue or profit we might derive from this predicted future engagement. 
