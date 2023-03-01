@@ -72,7 +72,7 @@ orders_pd.head(10)
 # convert pandas DF to Spark DF
 orders = spark.createDataFrame(orders_pd)
 
-# present Spark DF as queriable view
+# present Spark DF as queryable view
 orders.createOrReplaceTempView('orders') 
 
 # COMMAND ----------
@@ -720,7 +720,7 @@ def score_model(actuals, predicted, metric='mse'):
 # define function for model training and evaluation
 def evaluate_model(param):
   
-  # accesss replicated input_pd dataframe
+  # access replicated input_pd dataframe
   data = inputs.value
   
   # retrieve incoming parameters
@@ -1039,7 +1039,7 @@ display(
 
 # COMMAND ----------
 
-# MAGIC %sql -- retreive customer clv
+# MAGIC %sql -- retrieve customer clv
 # MAGIC 
 # MAGIC SELECT
 # MAGIC   customerid,

@@ -90,7 +90,7 @@ orders_pd.head(10)
 # convert pandas DF to Spark DF
 orders = spark.createDataFrame(orders_pd)
 
-# present Spark DF as queriable view
+# present Spark DF as queryable view
 orders.createOrReplaceTempView('orders') 
 
 # COMMAND ----------
@@ -176,7 +176,7 @@ orders.createOrReplaceTempView('orders')
 # MAGIC 
 # MAGIC SELECT
 # MAGIC   x.Transactions,
-# MAGIC   COUNT(x.*) as Occurances
+# MAGIC   COUNT(x.*) as Occurrences
 # MAGIC FROM (
 # MAGIC   SELECT
 # MAGIC     CustomerID,
@@ -667,7 +667,7 @@ search_space = hp.choice('model_type',[
 # define function for model evaluation
 def evaluate_model(params):
   
-  # accesss replicated input_pd dataframe
+  # access replicated input_pd dataframe
   data = inputs.value
   
   # retrieve incoming parameters
@@ -1055,7 +1055,7 @@ display(
 
 # COMMAND ----------
 
-# MAGIC %sql -- predict probabiliies customer is alive and will return in 15, 30 & 45 days
+# MAGIC %sql -- predict probabilities customer is alive and will return in 15, 30 & 45 days
 # MAGIC 
 # MAGIC SELECT
 # MAGIC   x.CustomerID,
