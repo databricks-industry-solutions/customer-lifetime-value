@@ -43,6 +43,7 @@ import pyspark.sql.functions as fn
 from pyspark.sql.types import *
 
 import mlflow.pyfunc
+import mlflow
 
 # COMMAND ----------
 
@@ -988,6 +989,10 @@ class _clvModelWrapper(mlflow.pyfunc.PythonModel):
 # COMMAND ----------
 
 # DBTITLE 1,Persist Model with MLflow
+# set mlflow experiment explicitly - this allows the notebook to run end-to-end in a Workflow
+username = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get()
+mlflow.set_experiment('/Users/{}/bytd'.format(username))
+
 # add btyd to conda environment info
 conda_env = mlflow.pyfunc.get_default_conda_env()
 
