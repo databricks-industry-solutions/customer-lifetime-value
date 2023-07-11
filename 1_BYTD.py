@@ -18,8 +18,7 @@
 # COMMAND ----------
 
 # DBTITLE 1,Install Required Libraries
-# MAGIC %pip install btyd
-# MAGIC %pip install openpyxl==3.1.2
+# MAGIC %pip install btyd==0.1a1 lifetimes==0.11.3 openpyxl==3.1.2
 # MAGIC dbutils.library.restartPython()
 
 # COMMAND ----------
@@ -115,6 +114,7 @@ orders_pd.head(10)
 # MAGIC |SalesAmount| Derived as Quantity * UnitPrice |
 # MAGIC
 # MAGIC Of these fields, the ones of particular interest for our work are InvoiceNo which identifies the transaction, InvoiceDate which identifies the date of that transaction, and CustomerID which uniquely identifies the customer across multiple transactions. The SalesAmount field is derived from the Quantity and UnitPrice fields in order to provide as a monetary amount around which we can estimate value.
+# MAGIC
 
 # COMMAND ----------
 
@@ -344,6 +344,7 @@ metrics_pd.head(10)
 # MAGIC %md The btyd library, like many Python libraries, is single-threaded.  Using this library to derive customer metrics on larger transactional datasets may overwhelm your system or simply take too long to complete. For this reason, let's examine how these metrics can be calculated using the distributed capabilities of Apache Spark.
 # MAGIC
 # MAGIC In the following cells we are going to use Programmatic Spark SQL API which may align better with some Data Scientist's preferences for complex data manipulation. Of course, you can derive the same results with Spark SQL using a SQL statement. In the code in the next cell, we first assemble each customer's order history consisting of the customer's ID, the date of their first purchase (first_at), the date on which a purchase was observed (transaction_at) and the current date (using the last date in the dataset for this value).  From this history, we can count the number of repeat transaction dates (frequency), the days between the last and first transaction dates (recency), the days between the current date and first transaction (T) and the associated monetary value (monetary_value) on a per-customer basis:
+# MAGIC
 
 # COMMAND ----------
 
