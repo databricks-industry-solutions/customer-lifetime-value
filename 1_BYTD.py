@@ -18,7 +18,7 @@
 # COMMAND ----------
 
 # DBTITLE 1,Install Required Libraries
-# MAGIC %pip install btyd==0.1a1 lifetimes==0.11.3 openpyxl==3.1.2
+# MAGIC %pip install btyd==0.1a1 numba==0.57.1 lifetimes==0.11.3 openpyxl==3.1.2
 # MAGIC dbutils.library.restartPython()
 
 # COMMAND ----------
